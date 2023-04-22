@@ -78,7 +78,7 @@ func main() {
 	if len(existingDirs) == 1 {
 		key := existingDirs[0]
 		cmd := exec.Command("cmd", "/C", fmt.Sprintf("%s %s\\%s", ides[key], dirs[key], project))
-		_, err := cmd.Output()
+		err := cmd.Start()
 		if err != nil {
 			fmt.Println(err)
 			return
